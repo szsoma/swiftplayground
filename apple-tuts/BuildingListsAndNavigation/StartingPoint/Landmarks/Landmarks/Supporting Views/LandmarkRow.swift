@@ -11,14 +11,29 @@ import SwiftUI
 struct LandmarkRow: View {
     var landmark: Landmark
     
-    
+
     var body: some View {
-        Text(landmark.name)
+        HStack {
+            landmark.image
+                .resizable()
+                .frame(width: 50, height: 50)
+            Text(landmark.name)
+            Spacer()
+        }.padding(.leading, 10)
+
     }
 }
 
 struct LandmarkRow_Previews: PreviewProvider {
     static var previews: some View {
-        LandmarkRow(landmark: landmarkData[1])
+        
+        Group {
+            LandmarkRow(landmark: landmarkData[0])
+                .previewLayout(.fixed(width: 300, height: 70))
+            LandmarkRow(landmark: landmarkData[1])
+                .previewLayout(.fixed(width: 300, height: 70))
+        }.previewLayout(.fixed(width: 300, height: 70))
+        
+       
     }
 }

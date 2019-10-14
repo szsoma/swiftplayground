@@ -9,11 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-  
-    var image: Image {
-        ImageStore.
-    }
-    
+
     var body: some View {
         
         ZStack {
@@ -21,10 +17,12 @@ struct ContentView: View {
             Color("appBackground").edgesIgnoringSafeArea(.all)
             
             VStack {
+                
                 Text("I am Rich")
                 .foregroundColor(Color("title"))
                     .font(.system(size: 40))
                     .fontWeight(.heavy)
+                Image("diamond")
                 
             }
         }
