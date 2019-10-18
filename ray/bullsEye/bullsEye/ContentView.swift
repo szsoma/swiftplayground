@@ -16,13 +16,23 @@ struct ContentView: View {
     @State var totalScr = 0
     @State var gameRound = 1
     
+    struct LabelStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.yellow)
+                .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                .font(Font.custom("Arial Rounded MT Bold", size: 18))
+        }
+    }
+    
     var body: some View {
         VStack {
             Spacer()
             // Target Row
             HStack {
-                Text("Put the bullseye as close as you can to:")
-                Text("\(target)")
+                Text("Put the bullseye as close as you can to:").modifier(LabelStyle())
+                Text("\(target)").modifier(LabelStyle())
+
             }.padding()
             
             // Slider Row
@@ -49,14 +59,16 @@ struct ContentView: View {
             
             // Score Row
             HStack {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Button(action: {
+                    self.startOver()
+                }) {
                     Text("Start Over")
                 }
                 Spacer()
-                Text("Score:")
+                Text("Score:").modifier(LabelStyle())
                 Text("\(totalScr)")
                 Spacer()
-                Text("Round:")
+                Text("Round:").modifier(LabelStyle())
                 Text("\(gameRound)")
                 Spacer()
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
@@ -65,7 +77,7 @@ struct ContentView: View {
 
             }.padding()
         }
-        
+        .background(Image("Background"), alignment: .center)
     }
     
     func alertTitle() -> String {
@@ -98,7 +110,13 @@ struct ContentView: View {
             return 100 - amountOff() + 50
         }
         return 100 - amountOff()
-
+    }
+    
+    func startOver() {
+        totalScr = 0
+        gameRound = 1
+        target = Int.random(in: 1...100)
+        sliderValue = 50
     }
 
 }
