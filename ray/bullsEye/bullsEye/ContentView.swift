@@ -15,15 +15,48 @@ struct ContentView: View {
     @State var target = Int.random(in: 1...100)
     @State var totalScr = 0
     @State var gameRound = 1
+    let midnightBlue = Color(red: 0.0 / 255.0, green: 51.0 / 255.0, blue: 102.0 / 255.0)
     
-    struct LabelStyle: ViewModifier {
+    struct LabelShadow: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+        }
+    }
+    
+    struct ValueStyle: ViewModifier {
         func body(content: Content) -> some View {
             return content
                 .foregroundColor(Color.yellow)
-                .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                .modifier(LabelShadow())
+                .font(Font.custom("Arial Rounded MT Bold", size: 24))
+        }
+    }
+    struct LabelStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.white)
+                .modifier(LabelShadow())
                 .font(Font.custom("Arial Rounded MT Bold", size: 18))
         }
     }
+    
+    struct BtnLargeTextStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.black)
+                .font(Font.custom("Arial Rounded MT Bold", size: 18))
+        }
+    }
+    
+    struct BtnSmallTextStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.black)
+                .font(Font.custom("Arial Rounded MT Bold", size: 12))
+        }
+    }
+
     
     var body: some View {
         VStack {
@@ -31,30 +64,32 @@ struct ContentView: View {
             // Target Row
             HStack {
                 Text("Put the bullseye as close as you can to:").modifier(LabelStyle())
-                Text("\(target)").modifier(LabelStyle())
+                Text("\(target)").modifier(ValueStyle())
 
             }.padding()
             
             // Slider Row
             HStack {
-                Text("1")
-                Slider(value: $sliderValue, in: 1...100)
-                Text("100")
+                Text("1").modifier(LabelStyle())
+                Slider(value: $sliderValue, in: 1...100).accentColor(Color.green)
+                Text("100").modifier(LabelStyle())
             }.padding()
             
             //Button Row
             Button(action: {
                 self.alertIsVisible = true
             }) {
-            Text("Hit Me!")
+                Text("Hit Me!").modifier(BtnLargeTextStyle())
             }
             .alert(isPresented: $alertIsVisible) { () -> Alert in
-                return Alert(title: Text(alertTitle()), message: Text("The slider's value \(sliderValueRounded()).\n + You scored \(pointsForCurrentRound() )"), dismissButton: .default(Text("Awesome")) {
+                return Alert(title: Text(alertTitle()), message: Text("The slider's value \(sliderValueRounded()).\n" + "You scored \(pointsForCurrentRound() )"), dismissButton: .default(Text("Awesome")) {
                     self.totalScr += self.pointsForCurrentRound()
                     self.target = Int.random(in: 1...100)
                     self.gameRound += 1
                     } )
-            }
+                }
+            .background(Image("Button")).modifier(LabelShadow())
+            .padding(.vertical, 40)
             Spacer()
             
             // Score Row
@@ -62,22 +97,32 @@ struct ContentView: View {
                 Button(action: {
                     self.startOver()
                 }) {
-                    Text("Start Over")
-                }
+                    HStack {
+                        Image("StartOverIcon")
+                        Text("Start Over").modifier(BtnSmallTextStyle())
+                    }
+                }.background(Image("Button")).modifier(LabelShadow())
                 Spacer()
                 Text("Score:").modifier(LabelStyle())
-                Text("\(totalScr)")
+                Text("\(totalScr)").modifier(ValueStyle())
                 Spacer()
                 Text("Round:").modifier(LabelStyle())
-                Text("\(gameRound)")
+                Text("\(gameRound)").modifier(ValueStyle())
                 Spacer()
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Text("Info")
+                NavigationLink(destination: AboutView()) {
+                    HStack {
+                        Image("InfoIcon")
+                        Text("Info")
+                    }
                 }
-
-            }.padding()
+                .background(Image("Button")).modifier(BtnSmallTextStyle())
+                .padding(.horizontal, 20)
+            }
+            .padding(.all, 30)
         }
-        .background(Image("Background"), alignment: .center)
+        .background(Image("Background").resizable(), alignment: .center)
+        .accentColor(midnightBlue)
+        .navigationBarTitle("Bullseye")
     }
     
     func alertTitle() -> String {

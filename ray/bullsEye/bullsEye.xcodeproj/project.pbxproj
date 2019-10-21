@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E32E89C8235DB8A5004F7C20 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32E89C7235DB8A5004F7C20 /* AboutView.swift */; };
 		E34DC4F72355069300048EA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34DC4F62355069300048EA1 /* AppDelegate.swift */; };
 		E34DC4F92355069300048EA1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34DC4F82355069300048EA1 /* SceneDelegate.swift */; };
 		E34DC4FB2355069300048EA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34DC4FA2355069300048EA1 /* ContentView.swift */; };
@@ -16,7 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E34DC4F32355069300048EA1 /* bullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E32E89C7235DB8A5004F7C20 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		E34DC4F32355069300048EA1 /* Bull's Eye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bull's Eye.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34DC4F62355069300048EA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E34DC4F82355069300048EA1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E34DC4FA2355069300048EA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,7 +50,7 @@
 		E34DC4F42355069300048EA1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E34DC4F32355069300048EA1 /* bullsEye.app */,
+				E34DC4F32355069300048EA1 /* Bull's Eye.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,6 +61,7 @@
 				E34DC4F62355069300048EA1 /* AppDelegate.swift */,
 				E34DC4F82355069300048EA1 /* SceneDelegate.swift */,
 				E34DC4FA2355069300048EA1 /* ContentView.swift */,
+				E32E89C7235DB8A5004F7C20 /* AboutView.swift */,
 				E34DC4FC2355069300048EA1 /* Assets.xcassets */,
 				E34DC5012355069300048EA1 /* LaunchScreen.storyboard */,
 				E34DC5042355069300048EA1 /* Info.plist */,
@@ -92,7 +95,7 @@
 			);
 			name = bullsEye;
 			productName = bullsEye;
-			productReference = E34DC4F32355069300048EA1 /* bullsEye.app */;
+			productReference = E34DC4F32355069300048EA1 /* Bull's Eye.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32E89C8235DB8A5004F7C20 /* AboutView.swift in Sources */,
 				E34DC4F72355069300048EA1 /* AppDelegate.swift in Sources */,
 				E34DC4F92355069300048EA1 /* SceneDelegate.swift in Sources */,
 				E34DC4FB2355069300048EA1 /* ContentView.swift in Sources */,
@@ -286,14 +290,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"bullsEye/Preview Content\"";
+				DEVELOPMENT_TEAM = VMDY65W252;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = bullsEye/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hu.uithings.bullsEye;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bull's Eye";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -305,14 +311,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"bullsEye/Preview Content\"";
+				DEVELOPMENT_TEAM = VMDY65W252;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = bullsEye/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hu.uithings.bullsEye;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bull's Eye";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
