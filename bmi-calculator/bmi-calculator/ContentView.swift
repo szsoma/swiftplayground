@@ -16,11 +16,14 @@ struct ContentView: View {
     struct navLinkStyle: ViewModifier {
         func body(content: Content) -> some View {
             return content
-                .background(Color.blue)
-                .foregroundColor(Color.white)
-                .padding(.all)
+                .accentColor(.white)
+                .padding()
+                .background(Color.green)
+                .cornerRadius(10)
+                .padding(12)
         }
     }
+    
     
     var body: some View {
         
@@ -36,29 +39,43 @@ struct ContentView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
-                Spacer()
                 
                 
                 // Navigation buttons
+                
                 HStack {
+                    Spacer()
                     NavigationLink(destination: bmiCalcView()){
                         Text("BMI Calculator")
-                    }.modifier(navLinkStyle())
-                    
+                    }
+                    Spacer()
+                }.modifier(navLinkStyle())
+                
+                HStack {
+                    Spacer()
                     NavigationLink(destination: bmrCalcView()){
                         Text("BMR Calculator")
                     }
-                }
+                    Spacer()
+                }.modifier(navLinkStyle())
                 
                 HStack {
+                    Spacer()
                     NavigationLink(destination: HistoryView()){
-                        Text("BMI Calculator")
+                        Text("History")
                     }
-                    
+                    Spacer()
+                }.modifier(navLinkStyle())
+                
+                HStack {
+                    Spacer()
                     NavigationLink(destination: InfoView()){
-                        Text("BMr Calculator")
+                        Text("Info")
                     }
-                }
+                    Spacer()
+                }.modifier(navLinkStyle())
+
+                
                 Spacer()
 
             }
