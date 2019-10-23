@@ -14,8 +14,9 @@ struct bmiCalcView: View {
     var genders = ["Female", "Male"]
     @State var weight = 0
     @State var height = 0
-    @State private var age = 0
-    var ages = [1, 2, 3, 4]
+    @State private var userAge = ""
+    @State private var userHeight = ""
+    @State private var userWeight = ""
     
     var body: some View {
         NavigationView {
@@ -29,15 +30,16 @@ struct bmiCalcView: View {
                 .padding()
                 
                 Form {
-                    Picker(selection: $age, label: Text("Your Age")) {
-                        ForEach(0 ..< ages.count) {
-                            self.ages[$0]
-                        }
-                    }.pickerStyle(WheelPickerStyle())
+                    Section(header: Text("Your Info")) {
+                        TextField("Your age", text: $userAge)
+                        TextField("Your height", text: $userHeight)
+                        TextField("Your Weight", text: $userWeight)
+                    }
+
                 }
             }
         }
-        .navigationBarTitle("Body Mass Calculator")
+        .navigationBarTitle(Text("Body Mass Calculator"), displayMode: .inline)
         
     }
 }
