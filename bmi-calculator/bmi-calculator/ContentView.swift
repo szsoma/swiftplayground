@@ -9,9 +9,6 @@
 import SwiftUI
 
 struct ContentView: View {
-
-    @State private var appUnit = 0
-    var appUits = ["Metric", "Imperial"]
     
     struct navLinkStyle: ViewModifier {
         func body(content: Content) -> some View {
@@ -30,19 +27,12 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 Text("Fitness Tracker v1.0")
+                    .font(.largeTitle)
                 Text("Complete Fitness tracker tool for weight loss")
-                
-                // Unit segment
-                Picker(selection: $appUnit, label: Text("Select your unit")) {
-                    Text("Metric").tag(0)
-                    Text("Imperial").tag(1)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding()
                 
                 
                 // Navigation buttons
-                
+                Spacer()
                 HStack {
                     Spacer()
                     NavigationLink(destination: bmiCalcView()){
@@ -80,7 +70,7 @@ struct ContentView: View {
 
             }
 
-        }
+        }.navigationBarTitle("Fitness Tracker v1.0")
     }
 }
 

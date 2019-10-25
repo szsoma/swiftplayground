@@ -10,7 +10,9 @@ import SwiftUI
 
 struct bmrCalcView: View {
     var body: some View {
-        Text("BMR Calculator")
+        Ellipse()
+            .fill(Color.green)
+            .frame(width: 100, height: 50)
     }
 }
 
