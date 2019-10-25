@@ -150,7 +150,6 @@ struct bmiCalcView: View {
                 .alert(isPresented: $alertIsVisible) { () -> Alert in
                     return Alert(title: Text("Your body mass index is: \(bmiCalculate())"), message: Text(indexPrint()), primaryButton: .default(Text("Save my BMI")) {
                         // Actions after Btn press
-                        bmi(id: 1, type: self.bmiColor(), bmiValue: String(format: "%.2f", self.bmiCalculate()), bmiDate: Date())
                         }, secondaryButton: .default(Text("Okay")))
                     }
                 .modifier(ButtonStyle())
@@ -170,6 +169,7 @@ struct bmiCalcView: View {
                         }
                     }
                     
+                }
                 }
                     
                 Spacer()
