@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-                BmiCalculatorView()
+            BmiCalculatorView(bmiStore: BmiStore())
                     .tabItem {
                         VStack {
                             Image(systemName: "dial")
@@ -26,13 +26,7 @@ struct ContentView: View {
                             Text(verbatim: "BMR")
                         }
                 }
-                HistoryView()
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "calendar")
-                            Text(verbatim: "History")
-                        }
-                }
+
                 SettingsView()
                     .tabItem {
                         VStack {

@@ -16,6 +16,12 @@ struct NewDataView: View {
     @State public var textHeight = ""
     @State public var textWeight = ""
     
+    static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter
+    }()
+    
     var body: some View {
         Form {
            
@@ -38,16 +44,29 @@ struct NewDataView: View {
             }
             
             Button("Add") {
-//              let priorityIndex = self.taskStore.getIndex(for: self.prority)
-//              
+                
+                self.bmiStore.bmis.append(Bmi(date: "2019.11.12", bmiData: self.bmiCalculate()))
+                print(self.bmiStore.bmis)
 //              self.bmiStore.prioritizedTasks[priorityIndex].tasks.append(
 //                Task(name: self.text)
 //              )
               
               self.presentationMode.wrappedValue.dismiss()
             }
+            .disabled(textWeight.isEmpty)
         }
     }
+    
+        
+    func convertToDouble(s: String) -> Double {
+        return ((s as NSString).doubleValue) / 100
+    }
+    
+    func bmiCalculate() -> String {
+        return String(format: "%.2f", 100 * (convertToDouble(s: textWeight) / pow(convertToDouble(s: textHeight), 2)))
+    }
+    
+    
 }
 
 struct NewDataView_Previews: PreviewProvider {

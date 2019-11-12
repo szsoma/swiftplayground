@@ -12,7 +12,7 @@ struct Bmi: Identifiable {
     let id = UUID()
     
     var date = ""
-    var bmiData = 0.0
+    var bmiData = ""
 }
 
 

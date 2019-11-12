@@ -16,10 +16,12 @@ class BmiStore: ObservableObject {
 //        ].map { Bmi(bmiData: $0) }
     
     @Published var bmis = [
-        Bmi(date: "2019.11.07", bmiData: 23.10),
-        Bmi(date: "2019.10.21", bmiData: 22.10),
-        Bmi(date: "2019.09.02", bmiData: 20.10),
-        Bmi(date: "2019.08.12", bmiData: 21.21),
-        Bmi(date: "2019.07.01", bmiData: 21.65)
+        Bmi(date: "2019.11.07", bmiData: "23.10"),
+        Bmi(date: "2019.10.21", bmiData: "22.10"),
+        Bmi(date: "2019.09.02", bmiData: "20.10"),
+        Bmi(date: "2019.08.12", bmiData: "21.21"),
+        Bmi(date: "2019.07.01", bmiData: "26.65")
     ]
+
+    
 }
