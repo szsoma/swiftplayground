@@ -19,7 +19,7 @@ struct ContentView: View {
                         }
                     }
                 
-                BmrCalculatorView()
+            BmrCalculatorView(bmiStore: BmiStore())
                     .tabItem {
                         VStack {
                             Image(systemName: "perspective")

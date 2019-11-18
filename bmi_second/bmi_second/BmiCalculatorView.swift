@@ -26,13 +26,12 @@ struct BmiCalculatorView: View {
         NavigationView {
             VStack {
                 Text("BMI is a useful measurement for most people over 18 years old. But it is only an estimate and it doesn’t take into account age, gender and body composition.")
-                    .padding(12)
-                
-                Section(header: Text("Your BMI History").padding()) {
+                .padding()
+                .font(.system(size: 14))
+                Section(header: Text("Your BMI History")) {
                     List {
                         ForEach(bmiStore.bmis) { bmiList in
                             HStack {
-                                //Text("\(bmiList.id)").padding(.trailing,10)
                                 if isRightValue(v: bmiList.bmiData) == "thin" {
                                     Ellipse().fill(Color(.orange)).frame(width: 12, height: 12)
                                 }
@@ -44,9 +43,9 @@ struct BmiCalculatorView: View {
                                 }
                                 
                                 Text("\(bmiList.date)")
-                                
                                 Spacer()
-                                
+                                Text("\(bmiList.weight) kg").multilineTextAlignment(.leading)
+                                Spacer()
                                 Text("\(bmiList.bmiData)").multilineTextAlignment(.trailing)
                             }
                         }
@@ -62,7 +61,10 @@ struct BmiCalculatorView: View {
                   Button(
                     action: { self.modalIsPresented = true }
                   ) {
-                    Image(systemName: "plus")
+                    HStack {
+                        Image(systemName: "plus")
+                        Text("New")
+                    }
                   }
               )
             }

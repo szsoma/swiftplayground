@@ -9,18 +9,13 @@
 import Combine
 
 class BmiStore: ObservableObject {
-//    @Published var bmis = [
-//        12.12,
-//        32.13,
-//        13.32
-//        ].map { Bmi(bmiData: $0) }
     
     @Published var bmis = [
-        Bmi(date: "2019.11.07", bmiData: "23.10"),
-        Bmi(date: "2019.10.21", bmiData: "22.10"),
-        Bmi(date: "2019.09.02", bmiData: "20.10"),
-        Bmi(date: "2019.08.12", bmiData: "21.21"),
-        Bmi(date: "2019.07.01", bmiData: "26.65")
+        Bmi(date: "2019.11.07", weight: "68", bmiData: "23.10", bmrData: 1541.25),
+        Bmi(date: "2019.10.21", weight: "67.4", bmiData: "22.10", bmrData: 1541.25),
+        Bmi(date: "2019.09.02", weight: "68.21", bmiData: "20.10", bmrData: 1541.25),
+        Bmi(date: "2019.08.12", weight: "65.12", bmiData: "21.21", bmrData: 1541.25),
+        Bmi(date: "2019.07.01", weight: "64", bmiData: "26.65", bmrData: 1523.25)
     ]
 
     

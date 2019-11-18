@@ -25,7 +25,7 @@ struct NewDataView: View {
     var body: some View {
         Form {
            
-            Section {
+            Section (header: Text("Add your values")){
                 // Textfields inputs
 
               HStack {
@@ -44,14 +44,9 @@ struct NewDataView: View {
             }
             
             Button("Add") {
-                
-                self.bmiStore.bmis.append(Bmi(date: "2019.11.12", bmiData: self.bmiCalculate()))
-                print(self.bmiStore.bmis)
-//              self.bmiStore.prioritizedTasks[priorityIndex].tasks.append(
-//                Task(name: self.text)
-//              )
+                self.bmiStore.bmis.append(Bmi(date: "2019.11.14", weight: self.textWeight, bmiData: self.bmiCalculate()))
               
-              self.presentationMode.wrappedValue.dismiss()
+                self.presentationMode.wrappedValue.dismiss()
             }
             .disabled(textWeight.isEmpty)
         }
